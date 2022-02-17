@@ -36,6 +36,19 @@ let totalIncome, totalExpense;
 
 document.getElementById('calculate-btn').addEventListener('click', function() {
 
+  if((incomeInput.value).length == 0) {
+    incomeInput.value = '0';
+  }
+  if((foodExpense.value).length == 0) {
+    foodExpense.value = '0';
+  }
+  if((rentExpense.value).length == 0) {
+    rentExpense.value = '0';
+  }
+  if((clothExpense.value).length == 0) {
+    clothExpense.value = '0';
+  }
+  
   totalExpense = parseInt(foodExpense.value) + parseInt(rentExpense.value) + parseInt(clothExpense.value);
 
   totalIncome = parseInt(incomeInput.value);
@@ -47,11 +60,11 @@ document.getElementById('calculate-btn').addEventListener('click', function() {
     document.getElementById('total-expense').innerText = totalExpense;
     document.getElementById('balance').innerText = totalIncome - totalExpense;
   }
-  document.getElementById('save-btn').disabled = false;
-  // incomeInput.value = '';
-  // foodExpense.value = '';
-  // rentExpense.value = '';
-  // clothExpense.value = '';
+
+  incomeInput.value = '0';
+  foodExpense.value = '0';
+  rentExpense.value = '0';
+  clothExpense.value = '0';
 });
 
 /*----------------------
@@ -60,18 +73,15 @@ document.getElementById('calculate-btn').addEventListener('click', function() {
 
 document.getElementById('save-btn').addEventListener('click', function(event){
 
+  if((saveInput.value).length == 0) {
+    saveInput.value = '0';
+  }
+
   const savings = parseInt(saveInput.value);
   
-  console.log('savings ee '+totalIncome);
-  console.log(saveInput)
-  console.log(savings);
   const saveAmount = (totalIncome * (savings / 100)).toFixed(2);
 
-  
   currentBalance = parseInt(document.getElementById('balance').innerText);
-
-  console.log(saveAmount);
-  console.log(currentBalance);
 
   if(saveAmount > currentBalance) {
     alert("You cannot save more money than you have");
@@ -81,7 +91,7 @@ document.getElementById('save-btn').addEventListener('click', function(event){
     document.getElementById('remaining-balance').innerText = (currentBalance - saveAmount).toFixed(2);
   }
 
-  // saveInput.value = '';
+  saveInput.value = '0';
 });
 
 /*---------------------------------------
@@ -92,12 +102,13 @@ document.getElementById('save-btn').addEventListener('click', function(event){
 function inputValidation(inputId) {
   inputId.addEventListener('keyup', function(event){
     let char = event.target.value;
-    if(isNaN(char)) {
+    if(char == '-') {
+      alert('Please! put a positive number');
+    }
+    else if(isNaN(char)) {
       alert('Please! Put a number');
     }
-    else if(char == '0') {
-      alert('Please! Put a positive number');
-    }
+    
   });
 };
 
