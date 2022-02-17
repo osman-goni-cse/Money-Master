@@ -18,6 +18,9 @@ label {
   background-color: #F8F8F8;
 }
 
+h2, h4, h5 {
+  font-weight: bold;
+}
 /* -----------------
   Income field CSS
 --------------------*/

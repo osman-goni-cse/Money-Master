@@ -7,34 +7,26 @@ const rentExpense = document.getElementById('rentExpense');
 const clothExpense = document.getElementById('clothExpense');
 const saveInput = document.getElementById('savePercent');
 
-// // console.log(incomeInput.value);
-// // console.log(foodExpense.value, rentExpense.value, clothExpense.value);a
-
-/* 
-incomeInput.onfocus = function () {
-  this.placeholder = this.value;
-  this.value = '';
-};
-*/
 
 /*--------------------------
     Validate Input field
 ---------------------------- */
+
 inputValidation(incomeInput);
 inputValidation(foodExpense);
 inputValidation(rentExpense);
 inputValidation(clothExpense);
 inputValidation(saveInput);
 
+/*
+    Remove Default value when focus
+*/
 
-// console.log(foodExpense);
-
-// console.log(foodExpense.value, rentExpense.value, clothExpense.value);
-
-// const totalExpense = parseInt(foodExpense.value) + parseInt(rentExpense.value) + parseInt(clothExpense.value);
-
-// const totalIncome = parseInt(incomeInput.value);
-
+removeDefaultValue(incomeInput);
+removeDefaultValue(foodExpense);
+removeDefaultValue(rentExpense);
+removeDefaultValue(clothExpense);
+removeDefaultValue(saveInput);
 
 /*--------------------------
     For Calculate Event
@@ -108,3 +100,13 @@ function inputValidation(inputId) {
     }
   });
 };
+
+/*--------------------------------------
+  Function which removes Default value
+----------------------------------------*/
+
+function removeDefaultValue(inputID) {
+  inputID.onfocus = function () {
+    this.value = '';
+  }
+}
