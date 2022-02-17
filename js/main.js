@@ -35,24 +35,25 @@ document.getElementById('calculate-btn').addEventListener('click', function() {
     document.getElementById('total-expense').innerText = totalExpense;
     document.getElementById('balance').innerText = totalIncome - totalExpense;
   }
-  incomeInput.value = '';
-  foodExpense.value = '';
-  rentExpense.value = '';
-  clothExpense.value = '';
+  // incomeInput.value = '';
+  // foodExpense.value = '';
+  // rentExpense.value = '';
+  // clothExpense.value = '';
 });
 
 document.getElementById('save-btn').addEventListener('click', function(event){
-  const saveInput = document.getElementById('save-amount');
+  const saveInput = document.getElementById('savePercent');
   inputValidation(saveInput);
 
   const savings = parseInt(saveInput.value);
   
   console.log('savings ee '+totalIncome);
+  console.log(saveInput)
   console.log(savings);
   const saveAmount = (totalIncome * (savings / 100)).toFixed(2);
 
   
-  currentBalance = parseInt(document.getElementById('balance').value);
+  currentBalance = parseInt(document.getElementById('balance').innerText);
 
   console.log(saveAmount);
   console.log(currentBalance);
@@ -62,10 +63,10 @@ document.getElementById('save-btn').addEventListener('click', function(event){
   }
   else {
     document.getElementById('save-amount').innerText = saveAmount;
-    document.getElementById('remaining-balance').innerText = currentBalance - saveAmount;
+    document.getElementById('remaining-balance').innerText = (currentBalance - saveAmount).toFixed(2);
   }
 
-  saveInput.value = '';
+  // saveInput.value = '';
 });
 
 function inputValidation(inputId) {
@@ -79,14 +80,3 @@ function inputValidation(inputId) {
     }
   });
 };
-
-// document.addEventListener('keyup', function(event) {
-//   let char = event.target.value;
-//   if(isNaN(char)) {
-//     alert('Please! Put a number');
-//   }
-//   else if(char == '0') {
-//     alert('Please! Put a positive number');
-//   }
-
-// });
