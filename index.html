@@ -32,13 +32,13 @@
           <img class="w-100" src="./images/budget-tax-2.jpg" alt="">
         </div>
 
-        <div class="col-sm-6 col-md-5 col-lg-6">
+        <div id="budget-part" class="col-sm-6 col-md-5 col-lg-6">
 
           <div class="income">
             <h4 class="text-center">Income</h4>
             <div id="income-input">
               <label for="">Income: &nbsp;</label>
-              <input type="text">
+              <input id="incomeInput" type="text">
             </div>
           </div>
 
@@ -48,27 +48,27 @@
 
               <div>
                 <label for="">Food: &nbsp;</label>
-                <input type="text">
+                <input id="foodExpense" type="text">
               </div>
 
               <div class="my-3">
                 <label for="">Rent: &nbsp</label>
-                <input type="text">
+                <input id="rentExpense" type="text">
               </div>
 
               <div>
                 <label for="">Clothes: &nbsp;</label>
-                <input type="text">
+                <input id="clothExpense" type="text">
               </div>
             </div>
             
           </div>
 
           <div class="total">
-            <button type="button" class="btn btn-primary my-2">Calculate</button>
-            <h5>Total Expenses: &nbsp; <span>12999</span></h4>
+            <button id="calculate-btn" type="button" class="btn btn-primary my-2">Calculate</button>
+            <h5>Total Expenses: &nbsp; <span id="total-expense">0</span></h4>
             
-            <h5>Balance: &nbsp; <span>3999</span></h5>
+            <h5>Balance: &nbsp; <span id="balance">0</span></h5>
 
           </div>
           
@@ -78,13 +78,13 @@
               <label for="">Save: &nbsp;</label>
               <input type="text">
               <span>&nbsp; % &nbsp;</span>
-              <button type="button" class="btn btn-primary my-2">Save</button>
+              <button id="save-btn" type="button" class="btn btn-primary my-2">Save</button>
             </div>
             <h5>Saving Amount: &nbsp;
-              <span>999</span>
+              <span id="save-amount">0</span>
             </h5>
             <h5>Remaining Balance: &nbsp;
-              <span>555</span>
+              <span id="remaining-balance">0</span>
             </h5>
           </div>
         </div>
