@@ -1,15 +1,31 @@
+/*----------------------------
+    Get input field using ID
+------------------------------*/
 const incomeInput = document.getElementById('incomeInput');
 const foodExpense = document.getElementById('foodExpense');
 const rentExpense = document.getElementById('rentExpense');  
 const clothExpense = document.getElementById('clothExpense');
+const saveInput = document.getElementById('savePercent');
 
 // // console.log(incomeInput.value);
 // // console.log(foodExpense.value, rentExpense.value, clothExpense.value);a
 
+/* 
+incomeInput.onfocus = function () {
+  this.placeholder = this.value;
+  this.value = '';
+};
+*/
+
+/*--------------------------
+    Validate Input field
+---------------------------- */
 inputValidation(incomeInput);
 inputValidation(foodExpense);
 inputValidation(rentExpense);
 inputValidation(clothExpense);
+inputValidation(saveInput);
+
 
 // console.log(foodExpense);
 
@@ -19,10 +35,14 @@ inputValidation(clothExpense);
 
 // const totalIncome = parseInt(incomeInput.value);
 
+
+/*--------------------------
+    For Calculate Event
+---------------------------- */
+
 let totalIncome, totalExpense;
 
 document.getElementById('calculate-btn').addEventListener('click', function() {
-
 
   totalExpense = parseInt(foodExpense.value) + parseInt(rentExpense.value) + parseInt(clothExpense.value);
 
@@ -35,15 +55,18 @@ document.getElementById('calculate-btn').addEventListener('click', function() {
     document.getElementById('total-expense').innerText = totalExpense;
     document.getElementById('balance').innerText = totalIncome - totalExpense;
   }
+  document.getElementById('save-btn').disabled = false;
   // incomeInput.value = '';
   // foodExpense.value = '';
   // rentExpense.value = '';
   // clothExpense.value = '';
 });
 
+/*----------------------
+    Save Event
+------------------------ */
+
 document.getElementById('save-btn').addEventListener('click', function(event){
-  const saveInput = document.getElementById('savePercent');
-  inputValidation(saveInput);
 
   const savings = parseInt(saveInput.value);
   
@@ -68,6 +91,11 @@ document.getElementById('save-btn').addEventListener('click', function(event){
 
   // saveInput.value = '';
 });
+
+/*---------------------------------------
+  Function which validates input field
+----------------------------------------- 
+*/
 
 function inputValidation(inputId) {
   inputId.addEventListener('keyup', function(event){

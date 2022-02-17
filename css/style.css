@@ -1,9 +1,12 @@
+/* -----------------
+    Common CSS
+--------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
   font-family: 'Poppins', sans-serif;
 }
-/* label CSS */
+
 label {
   font-weight: bold;
   display: inline-block;
@@ -11,23 +14,32 @@ label {
   text-align: right;
 }
 
+#budget-part {
+  background-color: #F8F8F8;
+}
+
+/* -----------------
+  Income field CSS
+--------------------*/
 #income-input {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+/* ---------------------
+    Expense fields CSS
+ ----------------------- */
 #expenses-input, .total, #bonus{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* ------------------
+    Save field CSS
+--------------------- */
 #save input {
   width: 132px;
   height: 35px;
 }
 
-#budget-part {
-  background-color: #F8F8F8;
-}
